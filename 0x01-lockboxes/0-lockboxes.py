@@ -19,6 +19,7 @@ def canUnlockAll(boxes):
     Returns:
     - Boolean: True if all boxes can be unlocked, False otherwise.
     """
+    
     keys = [0]
     opened_boxes = 0
     total_boxes = len(boxes)
