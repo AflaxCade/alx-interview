@@ -1,22 +1,23 @@
 #!/usr/bin/python3
-"""BOXES BOXES"""
+"""Unlocking Boxes"""
 
 
 def canUnlockAll(boxes):
     """
-    take boxes
-        create set of keys
-            go to box0
-                get all keys and add them setofkeys
-            start opening boxes from setofkeys
-                go to each box of each key
-                    and take the keys from it and add them to set of keys
-                keep loping through all setof keys
-            ignore keys that dont have box
-            track opening of boxes by a counter, if at end it
-            equal to lentgh of boxes it mean all boxes unlock
-            OPTIMIZE IDEA :
-                if we add 0 to setofkeys at start, we dont need for in 23
+    Determine if all boxes can be unlocked.
+    
+    Take a list of boxes containing keys.
+    Start with key 0 and collect all available keys.
+    Continue opening boxes using collected keys.
+    Track the opening of boxes by a counter.
+    If the counter reaches the total number of boxes, all boxes can be unlocked.
+    Optimized idea: Adding 0 to keys initially eliminates the need for a separate loop.
+
+    Args:
+    - boxes: A list of lists, where each inner list contains keys to other boxes.
+
+    Returns:
+    - Boolean: True if all boxes can be unlocked, False otherwise.
     """
     setofkeys = [0]
     counter = 0
