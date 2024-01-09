@@ -1,35 +1,38 @@
 #!/usr/bin/python3
-"""BOXES BOXES"""
+"""Unlocking Boxes"""
 
 
 def canUnlockAll(boxes):
     """
-    take boxes
-        create set of keys
-            go to box0
-                get all keys and add them setofkeys
-            start opening boxes from setofkeys
-                go to each box of each key
-                    and take the keys from it and add them to set of keys
-                keep loping through all setof keys
-            ignore keys that dont have box
-            track opening of boxes by a counter, if at end it
-            equal to lentgh of boxes it mean all boxes unlock
-            OPTIMIZE IDEA :
-                if we add 0 to setofkeys at start, we dont need for in 23
+    Determine if all boxes can be unlocked.
+    
+    Take a list of boxes containing keys.
+    Start with key 0 and collect all available keys.
+    Continue opening boxes using collected keys.
+    Track the opening of boxes by a counter.
+    If the counter reaches the total number of boxes, all boxes can be unlocked.
+    Optimized idea: Adding 0 to keys initially eliminates the need for a separate loop.
+
+    Args:
+    - boxes: A list of lists, where each inner list contains keys to other boxes.
+
+    Returns:
+    - Boolean: True if all boxes can be unlocked, False otherwise.
     """
-    setofkeys = [0]
-    counter = 0
+    keys = [0]
+    opened_boxes = 0
     total_boxes = len(boxes)
     index = 0
-    while index < len(setofkeys):
-        setkey = setofkeys[index]
-        for key in boxes[setkey]:
-            if key < total_boxes and key not in setofkeys and key > 0:
-                setofkeys.append(key)
-                counter += 1
+
+    while index < len(keys):
+        current_key = keys[index]
+        for key in boxes[current_key]:
+            if 0 < key < total_boxes and key not in keys:
+                keys.append(key)
+                opened_boxes += 1
         index += 1
-    if counter == total_boxes - 1:
+
+    if opened_boxes == total_boxes - 1:
         return True
     else:
         return False
