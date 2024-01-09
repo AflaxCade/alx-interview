@@ -10,14 +10,6 @@ def canUnlockAll(boxes):
     Start with key 0 and collect all available keys.
     Continue opening boxes using collected keys.
     Track the opening of boxes by a counter.
-    If the counter reaches the total number of boxes, all boxes can be unlocked.
-    Optimized idea: Adding 0 to keys initially eliminates the need for a separate loop.
-
-    Args:
-    - boxes: A list of lists, where each inner list contains keys to other boxes.
-
-    Returns:
-    - Boolean: True if all boxes can be unlocked, False otherwise.
     """
     setofkeys = [0]
     counter = 0
