@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Unlocking Boxes"""
+"""BOXES BOXES"""
+
 
 def canUnlockAll(boxes):
     """
@@ -17,18 +18,18 @@ def canUnlockAll(boxes):
             OPTIMIZE IDEA :
                 if we add 0 to setofkeys at start, we dont need for in 23
     """
-    keys = [0]
-    opened_boxes = 0
+    setofkeys = [0]
+    counter = 0
     total_boxes = len(boxes)
     index = 0
-    while index < len(keys):
-        current_key = keys[index]
-        for key in boxes[current_key]:
-            if key < total_boxes and key not in keys and key > 0:
-                keys.append(key)
-                opened_boxes += 1
+    while index < len(setofkeys):
+        setkey = setofkeys[index]
+        for key in boxes[setkey]:
+            if key < total_boxes and key not in setofkeys and key > 0:
+                setofkeys.append(key)
+                counter += 1
         index += 1
-    if opened_boxes  == total_boxes - 1:
+    if counter == total_boxes - 1:
         return True
     else:
         return False
