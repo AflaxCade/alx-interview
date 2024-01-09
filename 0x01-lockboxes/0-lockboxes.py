@@ -30,7 +30,6 @@ def canUnlockAll(boxes):
                 keys.append(key)
                 opened_boxes += 1
         index += 1
-
     if opened_boxes == total_boxes - 1:
         return True
     else:
